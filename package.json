@@ -2,8 +2,9 @@
     "name": "emoji",
     "displayName": "Emoji",
     "description": "Plugin to insert emoji from the command palette",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "Perkovec",
+    "icon": "icon.png",
     "engines": {
         "vscode": "^1.0.0"
     },
