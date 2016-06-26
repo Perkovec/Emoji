@@ -2,9 +2,25 @@
     "name": "emoji",
     "displayName": "Emoji",
     "description": "Plugin to insert emoji from the command palette",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "Perkovec",
     "icon": "icon.png",
+    "bugs": {
+        "url": "https://github.com/Perkovec/Emoji/issues"
+    },
+    "keywords": [
+        "emoji",
+        "swift",
+        "smiles",
+        "command",
+        "palette",
+        "unicode"
+    ],
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/Perkovec/Emoji.git"
+	},
+    "homepage": "https://github.com/Perkovec/Emoji",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -12,7 +28,8 @@
         "Other"
     ],
     "activationEvents": [
-		"*"
+		"onCommand:emoji.indertEmoji",
+		"onCommand:emoji.insertUnicode"
 	],
     "main": "./extension",
     "contributes": {
