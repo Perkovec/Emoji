@@ -1,0 +1,33 @@
+{
+    "name": "emoji",
+    "displayName": "Emoji",
+    "description": "Plugin to insert emoji from the command palette",
+    "version": "0.0.1",
+    "publisher": "Perkovec",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+		"*"
+	],
+    "main": "./extension",
+    "contributes": {
+        "commands": [{
+            "command": "emoji.indertEmoji",
+            "title": "Emoji: Insert emoji"
+        },
+        {
+            "command": "emoji.insertUnicode",
+            "title": "Emoji: Insert emoji unicode"
+        }]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "vscode": "^0.11.0"
+    }
+}
