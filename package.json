@@ -1,51 +1,61 @@
 {
-    "name": "emoji",
-    "displayName": "Emoji",
-    "description": "Plugin to insert emoji from the command palette",
-    "version": "0.0.3",
-    "publisher": "Perkovec",
-    "icon": "icon.png",
-    "bugs": {
-        "url": "https://github.com/Perkovec/Emoji/issues"
-    },
-    "keywords": [
-        "emoji",
-        "swift",
-        "smiles",
-        "command",
-        "palette",
-        "unicode"
-    ],
-    "repository": {
-		"type": "git",
-		"url": "https://github.com/Perkovec/Emoji.git"
-	},
-    "homepage": "https://github.com/Perkovec/Emoji",
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-		"onCommand:emoji.indertEmoji",
-		"onCommand:emoji.insertUnicode"
-	],
-    "main": "./extension",
-    "contributes": {
-        "commands": [{
-            "command": "emoji.indertEmoji",
-            "title": "Emoji: Insert emoji"
-        },
-        {
-            "command": "emoji.insertUnicode",
-            "title": "Emoji: Insert emoji unicode"
-        }]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "vscode": "^0.11.0"
-    }
+  "name": "emoji",
+  "displayName": "Emoji",
+  "description": "Plugin to insert emoji from the command palette",
+  "version": "0.0.3",
+  "publisher": "Perkovec",
+  "icon": "icon.png",
+  "bugs": {
+    "url": "https://github.com/Perkovec/Emoji/issues"
+  },
+  "keywords": [
+    "emoji",
+    "swift",
+    "smiles",
+    "command",
+    "palette",
+    "unicode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Perkovec/Emoji.git"
+  },
+  "homepage": "https://github.com/Perkovec/Emoji",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:emoji.indertEmoji",
+    "onCommand:emoji.insertMarkdown",
+    "onCommand:emoji.insertUnicode"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "emoji.indertEmoji",
+        "title": "Emoji: Insert emoji"
+      },
+      {
+        "command": "emoji.insertMarkdown",
+        "title": "Emoji: Insert emoji markdown"
+      },
+      {
+        "command": "emoji.insertUnicode",
+        "title": "Emoji: Insert emoji unicode"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "dependencies": {
+    "emoji-datasource": "^2.4.4"
+  },
+  "devDependencies": {
+    "vscode": "^0.11.0"
+  }
 }
