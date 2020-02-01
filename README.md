@@ -1,5 +1,7 @@
 # Emoji
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Perkovec/Emoji.svg)](https://greenkeeper.io/)
+
 A simple plugin to insert emoji from the command palette.
 
 ## Installation
