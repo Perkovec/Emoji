@@ -8,6 +8,10 @@ Run ``ext install emoji`` in the command palette.
 
 ## Usage
 
-Run ``Emoji: Insert emoji`` or ``Emoji: Insert emoji unicode`` in the command palette and select the emoji to insert at the cursor.
+Open command palette with `command/ctrl + p`
+
+type `>` select `Emoji: Insert emoji`
+
+Run ``Emoji: Insert emoji`` or ``Emoji: Insert emoji unicode`` in the command palette by hitting `enter` and select the emoji to insert at the cursor.
 
 ![Example](example.gif)
