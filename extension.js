@@ -1,19 +1,19 @@
 var vscode = require('vscode');
 var fs = require('fs');
 
-var smilesOptions = [];
-
-var data = require('./smilesData');
-
-var array = data.split("\n");
-for(i in array) {
-  var splited = array[i].split(' ', 1);
-  smilesOptions.push({
-    label: String.fromCodePoint(parseInt(splited[0], 16)),
-    description: array[i].slice(splited[0].length + 1),
-    unicode: splited[0]
-  })
-}
+const smilesOptions = require('emoji-datasource').map(emoji => {
+  const unicodes = emoji.unified.split('-');
+  const label = String.fromCodePoint(...unicodes.map(u => Number.parseInt(u, 16)));
+  const name = emoji.name || emoji.short_name.replace(/[_-]/g, ' ').toUpperCase();
+  const markdown = `:${emoji.short_name}:`;
+  const unicode = unicodes.map(u => (u.length === 4) ? `\\u${u}` : `\\u{${u}}`).join('');
+  return {
+    label,
+    description: `${name} ${markdown}`,
+    markdown,
+    unicode,
+  };
+});
 
 var pickOptions = {
   matchOnDescription: true,
@@ -33,20 +33,27 @@ function insertText(text) {
 }
 
 function activate(context) {
-    var insertEmoji = vscode.commands.registerTextEditorCommand('emoji.indertEmoji', function () {
-      vscode.window.showQuickPick(smilesOptions, pickOptions).then(function(item) {
-        insertText(item.label)
-      });
+  var insertEmoji = vscode.commands.registerTextEditorCommand('emoji.indertEmoji', function () {
+    vscode.window.showQuickPick(smilesOptions, pickOptions).then(function (item) {
+      insertText(item.label);
     });
+  });
 
-    var insertUnicode = vscode.commands.registerTextEditorCommand('emoji.insertUnicode', function () {
-      vscode.window.showQuickPick(smilesOptions, pickOptions).then(function(item) {
-        insertText('\\u' + item.unicode)
-      });
+  var insertMarkdown = vscode.commands.registerTextEditorCommand('emoji.insertMarkdown', function () {
+    vscode.window.showQuickPick(smilesOptions, pickOptions).then(function (item) {
+      insertText(item.markdown);
     });
+  });
 
-    context.subscriptions.push(insertEmoji);
-    context.subscriptions.push(insertUnicode);
+  var insertUnicode = vscode.commands.registerTextEditorCommand('emoji.insertUnicode', function () {
+    vscode.window.showQuickPick(smilesOptions, pickOptions).then(function (item) {
+      insertText(item.unicode);
+    });
+  });
+
+  context.subscriptions.push(insertEmoji);
+  context.subscriptions.push(insertMarkdown);
+  context.subscriptions.push(insertUnicode);
 }
 exports.activate = activate;
 
