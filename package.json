@@ -2,7 +2,7 @@
   "name": "emoji",
   "displayName": "Emoji",
   "description": "Plugin to insert emoji from the command palette",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Perkovec",
   "author": "Ilya Karpuk <perkovec24@gmail.com>",
   "icon": "icon.png",
